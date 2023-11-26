@@ -1,6 +1,6 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 
-import usersRoutes from './routes/users.js';
+import usersRoutes from './routes/users';
 
 const app = express();
 const PORT = 5000;
@@ -8,7 +8,7 @@ const PORT = 5000;
 app.use(express.json());
 app.use('/users', usersRoutes);
 
-app.get('/', (req, res) => {
+app.get('/', (_: Request, res: Response) => {
   res.send('Hello Express!');
 });
 

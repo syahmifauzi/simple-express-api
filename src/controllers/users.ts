@@ -1,3 +1,4 @@
+import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 
 let users = [
@@ -5,24 +6,24 @@ let users = [
   { firstName: 'Jane', lastName: 'Doe', age: 25, id: uuidv4() },
 ];
 
-export const createUser = (req, res) => {
+export const createUser = (req: Request, res: Response) => {
   const user = { ...req.body, id: uuidv4() };
   users.push(user);
   res.json(user);
 };
 
-export const getUsers = (req, res) => {
+export const getUsers = (_: Request, res: Response) => {
   res.json(users);
 };
 
-export const getUser = (req, res) => {
+export const getUser = (req: Request, res: Response) => {
   const { id } = req.params;
   const user = users.find((u) => u.id === id);
   if (!user) return res.status(404).send('User not found!');
   res.json(user);
 };
 
-export const updateUser = (req, res) => {
+export const updateUser = (req: Request, res: Response) => {
   const { id } = req.params;
   const user = users.find((u) => u.id === id);
   if (!user) return res.status(404).send('User not found!');
@@ -31,7 +32,7 @@ export const updateUser = (req, res) => {
   res.json(updatedUser);
 };
 
-export const deleteUser = (req, res) => {
+export const deleteUser = (req: Request, res: Response) => {
   const { id } = req.params;
   const user = users.find((u) => u.id === id);
   if (!user) return res.status(404).send('User not found!');
