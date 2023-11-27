@@ -8,7 +8,7 @@
     "prestart": "tsc",
     "start": "node ./dist/server.js",
     "dev": "tsc --watch & nodemon ./dist/server.js",
-    "test": "jest --coverage --watch --no-cache"
+    "test": "jest --coverage --watchAll --no-cache"
   },
   "keywords": [],
   "license": "ISC",
