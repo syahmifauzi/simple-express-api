@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
 import { v4 as uuidv4 } from 'uuid';
 
-let users = [
+import { User } from '../models/user';
+
+let users: User[] = [
   { firstName: 'John', lastName: 'Doe', age: 30, id: uuidv4() },
   { firstName: 'Jane', lastName: 'Doe', age: 25, id: uuidv4() },
 ];

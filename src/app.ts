@@ -5,7 +5,6 @@ import { usersRoutes } from './routes/users';
 import { errorHandler } from './middlewares/error';
 
 const app = express();
-const PORT = 5000;
 
 app.use(logger);
 
@@ -18,6 +17,4 @@ app.get('/', (_, res) => {
 
 app.use(errorHandler);
 
-app.listen(PORT, () => {
-  console.log(`Server running on port http://localhost:${PORT}`);
-});
+export default app;
